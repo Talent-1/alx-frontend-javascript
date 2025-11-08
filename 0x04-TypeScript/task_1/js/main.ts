@@ -31,7 +31,7 @@ console.log(teacher1); // Still useful for the browser console
 
 
 
-interface Directors extends Teacher{
+interface Director extends Teacher{
     numberOfReports: number;
 }
 
