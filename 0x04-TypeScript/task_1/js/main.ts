@@ -57,17 +57,27 @@ const director2: Director = {
 
 console.log(director1); 
 
-// Interface for print teacher function
+// Interface for the arguments required by printTeacher
+interface PrintTeacherArgs {
+    firstName: string;
+    lastName: string;
+}
 
+// Interface for the function signature (REQUIRED STEP)
 interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
+    (nameInfo: PrintTeacherArgs): string;
 }
 
-// Print Teacher Function
-
-const
- printTeacher: printTeacherFunction = (firstName, lastName) => {
+/**
+ * Implements the printTeacher function using object destructuring for the arguments.
+ * It accepts an object (like Teacher or Director) and returns the formatted name.
+ */
+function printTeacher({ firstName, lastName }: Teacher): string {
     return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
-console.log(printTeacher("John", "Doe")); // Output: J. Doe
+
+
+console.log('--- Print Teacher Function Test ---');
+// Call sites updated to pass an object argument instead of two strings
+console.log(printTeacher(teacher1)); // Output: A. Johnson
