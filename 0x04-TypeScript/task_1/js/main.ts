@@ -42,7 +42,7 @@ const director1: Directors = {
     location: "Texas",
     age: 50,
     contract: false,
-    numberOfReport: 5
+    numberOfReports: 5
 };
 
 const director2: Directors = {
@@ -52,7 +52,7 @@ const director2: Directors = {
     location: "Florida",
     age: 45,
     contract: true,
-    numberOfReport: 10
+    numberOfReports: 10
 };
 
 console.log(director1); // Still useful for the browser console
