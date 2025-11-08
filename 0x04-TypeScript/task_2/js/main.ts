@@ -6,6 +6,12 @@ interface DirectorInterface {
     workDirectorTasks(): string;
 }
 
+interface TeacherInterface {
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workTeacherTasks(): string;
+}
+
 class Director implements DirectorInterface {
     workFromHome(): string {
         return "Working from home";
@@ -18,11 +24,6 @@ class Director implements DirectorInterface {
     }
 }
 
-interface TeacherInterface {
-    workFromHome(): string;
-    getCoffeeBreak(): string;
-    workTeacherTasks(): string;
-}
 
 class Teacher implements TeacherInterface {
     workFromHome(): string {
@@ -43,22 +44,21 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
 }
 
-console.log('---Employee Factory Tests---')
-// Test Case 2: Salary >= 500 (Expected: Director)
-const employee2 = createEmployee(500);
-console.log(`\nSalary 500 (Type: ${(employee2.constructor as any).name})`);
-if (employee2 instanceof Director) {
-    console.log(`Work Director Tasks: ${employee2.workDirectorTasks()}`); // Should be 'Getting to director tasks'
-}
+const emp1 = createEmployee(200);
+const emp2 = createEmployee(1000);
+const emp3 = createEmployee("500");
 
-// Test Case 3: Salary is a string (Expected: Director)
-const employee3 = createEmployee('$1000');
-console.log(`\nSalary $1000 (Type: ${(employee3.constructor as any).name})`);
-console.log(`Get Coffee Break: ${employee3.getCoffeeBreak()}`); // Should be 'Getting a coffee break'
+console.log("---Employee 1---");
+console.log(emp1.workFromHome());
+console.log(emp1.getCoffeeBreak());
+if (emp1 instanceof Teacher) console.log(emp1.workTeacherTasks());
 
-// Test Case 4: Testing the Teacher's unique method
-const employee4 = createEmployee(300);
-console.log(`\nSalary 300 (Type: ${(employee4.constructor as any).name})`);
-if (employee4 instanceof Teacher) {
-    console.log(`Work Teacher Tasks: ${employee4.workTeacherTasks()}`); // Should be 'Getting to work'
-}
+console.log("---Employee 2---");
+console.log(emp2.workFromHome());
+console.log(emp2.getCoffeeBreak());
+if (emp2 instanceof Director) console.log(emp2.workDirectorTasks());
+
+console.log("---Employee 3---");
+console.log(emp3.workFromHome());
+console.log(emp3.getCoffeeBreak());
+if (emp3 instanceof Director) console.log(emp3.workDirectorTasks());
