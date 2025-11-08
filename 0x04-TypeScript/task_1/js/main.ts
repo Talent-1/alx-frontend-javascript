@@ -65,6 +65,6 @@ interface printTeacherFunction {
 
 // Function to print teacher's name in the specified format
 function printTeacher(firstName: string, lastName: string): string {
-    return `${firstName.charAt(0)}. ${lastName}`;
+    return `${firstName}. ${lastName}`;
 }
 console.log(printTeacher("John", "Doe")); // Output: J. Doe
