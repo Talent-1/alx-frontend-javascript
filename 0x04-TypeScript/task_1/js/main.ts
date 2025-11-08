@@ -27,7 +27,7 @@ const teacher2: Teacher = {
  contract: true
 };
 
-console.log(teacher1); // Still useful for the browser console
+console.log(teacher1);
 
 
 
@@ -35,7 +35,7 @@ interface Director extends Teacher{
     numberOfReports: number;
 }
 
-const director1: Directors = {
+const director1: Director = {
     firstName: "Charlie",
     lastName: "Brown",
     fullTimeEmployee: true,
@@ -45,7 +45,7 @@ const director1: Directors = {
     numberOfReports: 5
 };
 
-const director2: Directors = {
+const director2: Director = {
     firstName: "Diana",
     lastName: "Prince",
     fullTimeEmployee: true,
@@ -55,4 +55,19 @@ const director2: Directors = {
     numberOfReports: 10
 };
 
-console.log(director1); // Still useful for the browser console
+console.log(director1); 
+
+// Interface for print teacher function
+
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+// Print Teacher Function
+
+const
+ printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+console.log(printTeacher("John", "Doe")); // Output: J. Doe
