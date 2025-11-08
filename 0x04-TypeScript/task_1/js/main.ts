@@ -32,7 +32,7 @@ console.log(teacher1); // Still useful for the browser console
 
 
 interface Directors extends Teacher{
-    numberOfReport: number;
+    numberOfReports: number;
 }
 
 const director1: Directors = {
