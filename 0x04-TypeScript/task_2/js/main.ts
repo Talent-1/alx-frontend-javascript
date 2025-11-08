@@ -59,6 +59,6 @@ console.log(`Get Coffee Break: ${employee3.getCoffeeBreak()}`); // Should be 'Ge
 // Test Case 4: Testing the Teacher's unique method
 const employee4 = createEmployee(300);
 console.log(`\nSalary 300 (Type: ${(employee4.constructor as any).name})`);
-if (employee4 instanceof TeacherClass) {
+if (employee4 instanceof Teacher) {
     console.log(`Work Teacher Tasks: ${employee4.workTeacherTasks()}`); // Should be 'Getting to work'
 }
